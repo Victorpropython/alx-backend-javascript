@@ -6,7 +6,5 @@ export default function getSanFranciscoDescription() {
     capital: '4178.479',
 };
 
-  return `As of ${year}, it was the seventh highest income county in the United States,
-        With a per capita personal income of ${budget.income}. As of 2015, Sanfrancisco
-          Proper had a GDP of ${budget.gdp}, and a GDp per capital of ${budget.capita}.`;
+  return `As of ${year}, it was the seventh highest income county in the United States, With a per capita personal income of ${budget.income}. As of 2015, Sanfrancisco Proper had a GDP of ${budget.gdp}, and a GDp per capital of ${budget.capita}.`;
 }
