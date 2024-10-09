@@ -7,27 +7,27 @@ export default class Currency {
       throw new TypeError('Name must be a string');
     }
     this._code = code;
-    this._name = name
+    this._name = name;
   }
-  //getter for code
+  // getter for code
 
   get code() {
     return (this._code);
   }
 
-  set(value) {
+  set code(value) {
     if (typeof value !== 'string') {
       throw new TypeError('Code must be a string');
     }
     this._code = value;
   }
-  //for name
+  // for name
 
   get name() {
     return (this._name);
   }
 
-  set(value) {
+  set name(value) {
     if (typeof value !== 'string') {
       throw new TypeError('Name must be a strin');
     }
