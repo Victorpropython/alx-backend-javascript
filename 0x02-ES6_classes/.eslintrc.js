@@ -1,4 +1,5 @@
 module.exports = {
+   "type": "module",
   env: {
     browser: false,
     es6: true,
