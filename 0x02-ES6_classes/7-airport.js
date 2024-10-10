@@ -17,7 +17,7 @@ export default class Airport {
   }
 
   set name(value) {
-    this._name = name;
+    this._name = value;
   }
 
   get code() {
@@ -29,6 +29,6 @@ export default class Airport {
   }
 
   get [Symbol.toStringTag]() {
-    return `${this._name} ${this._code}`;
+    return this._code;
   }
 }
