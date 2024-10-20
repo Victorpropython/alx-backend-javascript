@@ -1,5 +1,5 @@
-/*Function to return a promise using a function prototype
- */
-function getResponseFromAPI() {
-	return new Promise((reject, resolve));
+// Function to return a promise using a function prototype
+
+export default function getResponseFromAPI() {
+	return new Promise(() => { });
 }
