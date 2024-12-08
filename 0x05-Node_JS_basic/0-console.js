@@ -5,5 +5,4 @@ function displayMessage(message) {
 }
 
 
-module.exports = displayMessage(message);
-
+module.exports = displayMessage;
