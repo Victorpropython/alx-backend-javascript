@@ -1,18 +1,13 @@
-// eslint.config.js
-export default [
-  {
-    ignores: ["node_modules/**", "dist/**"], // Optional: Directories to ignore
-  },
-  {
-    files: ["**/*.js"],
-    languageOptions: {
-      ecmaVersion: 2022, // Use the appropriate ECMAScript version
-      sourceType: "module", // Or "script" for non-modular files
-    },
-    rules: {
-      // Add your rules here
-      "no-console": "warn", // Example: Warn for console statements
-    },
-  },
-];
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import tseslint from "typescript-eslint";
 
+
+/** @type {import('eslint').Linter.Config[]} */
+export default [
+  {files: ["**/*.{js,mjs,cjs,ts}"]},
+  {files: ["**/*.js"], languageOptions: {sourceType: "commonjs"}},
+  {languageOptions: { globals: {...globals.browser, ...globals.node} }},
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+];
