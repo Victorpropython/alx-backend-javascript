@@ -1,9 +1,7 @@
 // Importing the "Readline"
 
 const readline = require('readline');
-
 // Creating a platform to read from the stdin and the output
-
 const readData = readline.createInterface({
 input: process.stdin,
 output: process.stdout
