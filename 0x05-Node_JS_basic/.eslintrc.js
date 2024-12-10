@@ -13,7 +13,7 @@ module.exports = {
     SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
-    ecmaVersion: 2023,
+    ecmaVersion: 2018,
     sourceType: 'module',
   },
   plugins: ['jest'],
