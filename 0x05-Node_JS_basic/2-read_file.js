@@ -34,7 +34,8 @@ const countStudents = (fileName) => {
       }
 
       const studentEntries = studentPropNames.map(
-        (propName, idx) => [propName, studentPropValues[idx]]);
+        (propName, idx) => [propName, studentPropValues[idx]]
+      );
       studentGroups[field].push(Object.fromEntries(studentEntries));
     }
 
