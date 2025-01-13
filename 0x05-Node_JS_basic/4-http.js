@@ -9,7 +9,7 @@ const port = 1245
 
 const app = http.createServer((req, res) => {
   res.statusCode = 200;
-  res.setHeader ('content type', 'text/plain');
+  res.setHeader ('Content-Type', 'text/plain');
   res.end('Hello ALX!')
 });
 app.listen (port, hostname, () => {
