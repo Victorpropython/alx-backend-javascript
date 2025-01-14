@@ -1,8 +1,3 @@
-/**
- * Function to create an Http server
- * 
- * And display HEllo Alx!
- */
 const http = require('http');
 
 const PORT = 1245;
@@ -10,12 +5,10 @@ const HOST = 'localhost';
 const app = http.createServer();
 
 app.on('request', (_, res) => {
-  const responseText = 'Hello ALX!';
+  const responseText = 'Hello ALX!'; 
 
-  res.setHeader('Content-Type', 'text/plain');
-  res.setHeader('Content-Length', responseText.length);
-  res.statusCode = 200;
-  res.write(Buffer.from(responseText));
+  res.writeHead(200, {'Content - Type':'text/plain'}); 
+  res.end(responseText); 
 });
 
 app.listen(PORT, HOST, () => {
