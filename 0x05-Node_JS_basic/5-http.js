@@ -90,6 +90,11 @@ const SERVER_ROUTE_HANDLERS = [
           res.write(Buffer.from(responseText));
         })
         .catch((err) => {
+          if (err.message === 'Cannot load the database'){
+            res.statusCode = 404;
+          }else {
+            res.statusCode = 200;
+          }
           responseParts.push(err instanceof Error ? err.message : err.toString());
           const responseText = responseParts.join('\n');
           res.setHeader('Content-Type', 'text/plain');
