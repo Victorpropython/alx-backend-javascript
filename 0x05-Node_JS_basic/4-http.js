@@ -3,17 +3,23 @@
  * 
  * And display HEllo Alx!
  */
-const http = require('http')
-const hostname = 'localhost'
-const port = 1245
+const http = require('http');
 
-const app = http.createServer((req, res) => {
+const PORT = 1245;
+const HOST = 'localhost';
+const app = http.createServer();
+
+app.on('request', (_, res) => {
+  const responseText = 'Hello ALX!';
+
+  res.setHeader('Content-Type', 'text/plain');
+  res.setHeader('Content-Length', responseText.length);
   res.statusCode = 200;
-  res.setHeader ('Content-Type', 'text/plain');
-  res.end('Hello ALX!')
+  res.write(Buffer.from(responseText));
 });
-app.listen (port, hostname, () => {
-  console.log (`server running at http://${hostname} : port ${port}`)
+
+app.listen(PORT, HOST, () => {
+  process.stdout.write(`Server listening at -> http://${HOST}:${PORT}\n`);
 });
 
 module.exports = app;
