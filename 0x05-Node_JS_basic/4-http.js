@@ -1,7 +1,3 @@
-/**
- * Function to create a simple server
- * And output a text
- */
 const http = require('http');
 
 const PORT = 1245;
@@ -9,9 +5,12 @@ const HOST = 'localhost';
 const app = http.createServer();
 
 app.on('request', (_, res) => {
-  const responseText = 'Hello ALX!';
-  res.writeHead(200, {'Content-Type':'text/plain'}); 
-  res.end(responseText); 
+  const responseText = 'Hello Holberton School!';
+
+  res.setHeader('Content-Type', 'text/plain');
+  res.setHeader('Content-Length', responseText.length);
+  res.statusCode = 200;
+  res.end(responseText);
 });
 
 app.listen(PORT, HOST, () => {
