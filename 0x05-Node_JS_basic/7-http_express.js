@@ -62,36 +62,37 @@ const countStudents = (dataPath) => new Promise((resolve, reject) => {
   }
 });
 
-app.get ('/', (_, res) => {
-      res.send = 'Hello Holberton School!';
+app.get('/', (_, res) => {
+  res.send ('Hello Holberton School!');
 });
-app.get('/students', (_, res) => {
-      const responseParts = ['This is the list of our students'];
 
-      countStudents(DB_FILE)
-        .then((report) => {
-          responseParts.push(report);
-          const responseText = responseParts.join('\n');
-          res.setHeader('Content-Type', 'text/plain');
-          res.setHeader('Content-Length', responseText.length);
-          res.statusCode = 200;
-          res.write(Buffer.from(responseText));
-        })
-        .catch((err) => {
-          if (err.message === 'Cannot load the database') {
-            res.statusCode = 404;
-          }
-          else {
-            res.statusCode = 200;
-          }
-          responseParts.push(err instanceof Error ? err.message : err.toString());
-          const responseText = responseParts.join('\n');
-          res.setHeader('Content-Type', 'text/plain');
-          res.setHeader('Content-Length', responseText.length);
-          res.statusCode = 200;
-          res.write(Buffer.from(responseText));
-        });
-      }),
+app.get('/students', (_, res) => {
+  const responseParts = ['This is the list of our students'];
+  
+  countStudents(DB_FILE)
+  .then((report) => {
+    responseParts.push(report);
+    const responseText = responseParts.join('\n');
+    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Content-Length', responseText.length);
+    res.statusCode = 200;
+    res.write(Buffer.from(responseText));
+  })
+  .catch((err) => {
+    if (err.message === 'Cannot load the database') {
+      res.statusCode = 404;
+    }
+    else {
+      res.statusCode = 200;
+    }
+    responseParts.push(err instanceof Error ? err.message : err.toString());
+    const responseText = responseParts.join('\n');
+    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Content-Length', responseText.length);
+    res.statusCode = 200;
+    res.write(Buffer.from(responseText));
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening at -> ${PORT}\n`);
