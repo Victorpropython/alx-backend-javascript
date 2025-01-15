@@ -79,8 +79,7 @@ app.get('/students', (_, res) => {
     })
     .catch((err) => {
       if (err.message === 'Cannot load the database') {
-        res.statusCode = 404;
-      }
+        res.statusCode = 404;}
       else {
         res.statusCode = 200;
       }
@@ -92,7 +91,6 @@ app.get('/students', (_, res) => {
       res.write(Buffer.from(responseText));
     });
   });
-
 app.listen(PORT, () => {
   console.log(`Server listening at -> ${PORT}\n`);
 });
