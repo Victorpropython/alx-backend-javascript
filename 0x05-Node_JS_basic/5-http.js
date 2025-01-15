@@ -91,8 +91,8 @@ const SERVER_ROUTE_HANDLERS = [
         })
         .catch((err) => {
           if (err.message === 'Cannot load the database') {
-            res.statusCode = 404 };
-          else {
+            res.statusCode = 404;
+          } else {
             res.statusCode = 200;
           }
           responseParts.push(err instanceof Error ? err.message : err.toString());
