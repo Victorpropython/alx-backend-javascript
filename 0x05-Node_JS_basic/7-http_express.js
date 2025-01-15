@@ -69,7 +69,7 @@ app.get('/', (_, res) => {
 app.get('/students', (_, res) => {
   const responseParts = ['This is the list of our students'];
   countStudents(DB_FILE)
-  .then((report) => {
+    .then((report) => {
       responseParts.push(report);
       const responseText = responseParts.join('\n');
       res.setHeader('Content-Type', 'text/plain');
@@ -77,7 +77,7 @@ app.get('/students', (_, res) => {
       res.statusCode = 200;
       res.write(Buffer.from(responseText));
     })
-  .catch((err) => {
+    .catch((err) => {
       if (err.message === 'Cannot load the database') {
         res.statusCode = 404;
       }
@@ -90,8 +90,8 @@ app.get('/students', (_, res) => {
       res.setHeader('Content-Length', responseText.length);
       res.statusCode = 200;
       res.write(Buffer.from(responseText));
+    });
   });
-});
 
 app.listen(PORT, () => {
   console.log(`Server listening at -> ${PORT}\n`);
