@@ -90,9 +90,8 @@ const SERVER_ROUTE_HANDLERS = [
           res.write(Buffer.from(responseText));
         })
         .catch((err) => {
-          if (err.message === 'Cannot load the database'){
-            res.statusCode = 404;
-          }
+          if (err.message === 'Cannot load the database') {
+            res.statusCode = 404 };
           else {
             res.statusCode = 200;
           }
