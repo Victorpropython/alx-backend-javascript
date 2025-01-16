@@ -7,7 +7,7 @@
     "lint": "eslint",
     "check-lint": "lint [0-9]*.js",
     "test": "./node_modules/mocha/bin/mocha --require babel-register --exit",
-    "dev": " "
+    "dev": "index.js "
   },
   "author": "",
   "license": "ISC",
