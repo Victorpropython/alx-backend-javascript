@@ -1,13 +1,13 @@
 const express = require('express');
 const fs = require('fs');
 
-const PORT = 1245;
 const app = express();
+const PORT = 1245;
 const DB_FILE = process.argv.length > 2 ? process.argv[2] : '';
 
 /**
  * Counts the students in a CSV data file.
- * @param {String} dataPath The path to the CSV data file.
+ * @param {String} dataPath The path to the CSV data
  */
 const countStudents = (dataPath) => new Promise((resolve, reject) => {
   if (!dataPath) {
@@ -68,6 +68,7 @@ app.get('/', (_, res) => {
 
 app.get('/students', (_, res) => {
   const responseParts = ['This is the list of our students'];
+
   countStudents(DB_FILE)
     .then((report) => {
       responseParts.push(report);
@@ -78,24 +79,17 @@ app.get('/students', (_, res) => {
       res.write(Buffer.from(responseText));
     })
     .catch((err) => {
-      if (err.message === 'Cannot load the database') {
-        res.statusCode = 404;
-      }
-      else {
-        res.statusCode = 200;
-      }
       responseParts.push(err instanceof Error ? err.message : err.toString());
       const responseText = responseParts.join('\n');
       res.setHeader('Content-Type', 'text/plain');
       res.setHeader('Content-Length', responseText.length);
       res.statusCode = 200;
       res.write(Buffer.from(responseText));
-    }
-    );
+    });
 });
 
 app.listen(PORT, () => {
-  console.log(`Server listening at -> ${PORT}\n`);
+  console.log(`Server listening on PORT ${PORT}`);
 });
 
 module.exports = app;
