@@ -47,7 +47,6 @@ class StudentsController {
     const { major } = request.params;
 
     if (!VALID_MAJORS.includes(major)) {
-      A
       response.status(500).send('Major parameter must be CS or SWE');
       return;
     }
@@ -63,7 +62,7 @@ class StudentsController {
       })
       .catch((err) => {
         response
-        A
+
           .status(500)
           .send(err instanceof Error ? err.message : err.toString());
       });
