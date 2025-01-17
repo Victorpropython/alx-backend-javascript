@@ -15,7 +15,7 @@ function calculateNumber(type, a, b) {
       if (b === 0) {
         return 'Error';
       }
-      return a / b;
+      return Math.round(a / b);
     default:
       return 'Unknown operation';
   }
