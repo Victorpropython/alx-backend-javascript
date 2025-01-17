@@ -3,23 +3,17 @@
  * @param{type , a , b} being the argument and rounding it up as a sum
  */
 function calculateNumber(type, a, b) {
-  a = Math.round(a);
-  b = Math.round(b);
-
   switch (type) {
     case 'SUM':
-      return a + b;
+      return Math.round(a) + Math.round(b);
     case 'SUBTRACT':
-      return a - b;
+      return Math.round(a) - Math.round(b);
     case 'DIVIDE':
-      if (b === 0) {
+      if (Math.round(b) === 0) {
         return 'Error';
       }
-      return Math.round(a / b);
-    default:
-      return 'Unknown operation';
+      return Math.round(a) / Math.round(b);
   }
-
 }
 
-module.exports = calculateNumber
+module.exports = calculateNumber;
