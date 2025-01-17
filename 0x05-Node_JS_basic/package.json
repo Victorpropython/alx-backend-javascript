@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "0x05. NodeJS Basics",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "lint": "eslint",
     "check-lint": "lint [0-9]*.js",
     "test": "./node_modules/mocha/bin/mocha --require babel-register --exit",
-    "dev": "index.js "
+    "dev": "nodemon --exec babel-node --presets babel-preset-env ./full_server/server.js"
   },
   "author": "",
   "license": "ISC",
