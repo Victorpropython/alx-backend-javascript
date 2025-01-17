@@ -3,7 +3,7 @@
  * @param{a , b} being the argument and rounding it up as a sum
  */
 function calculateNumber(a, b) {
-  return Math.round(a) + Math.round(b);
+  return Math.round(a) + Math.ceil(b);
 }
 
-module.exports = calculateNumber
+module.exports = calculateNumber;
